@@ -1,0 +1,16 @@
+{
+    "name": "idiacant/dummyspam",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Idiacant",
+            "email": "idiacant00@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+     	"psr-4": { "idiacant\\dummyspam\\": "src/" }
+
+     },
+    "license": "MIT"
+}
