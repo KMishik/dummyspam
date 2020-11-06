@@ -2,10 +2,34 @@
 
 namespace idiacant\dummyspam;
 
+use idiacant\dummyspam\interfaces\GraphenesInterface;
+use idiacant\dummyspam\interfaces\PatternsInterface;
+
 class DummySpam
 {
-	public function __construct()
+	public $glyphs;
+	public $patterns;
+
+	private $message;
+
+	private function setMessage(string $message) {
+
+		$this->message = $message;
+
+	}
+
+
+	public function __construct(GraphenesInterface $graphene, PatternsInterface $pattern, string $message )
 	{
-		echo __CLASS__;
+		$this->glyphs = $graphene::getGlyphs();
+		$this->patternSet = $pattern::getPatterns();
+		$this->setMessage($message);
+	}
+
+
+	public function getMessage() : string {
+
+		return $this->message;
+
 	}
 }
