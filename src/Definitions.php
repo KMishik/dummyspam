@@ -1,11 +1,15 @@
 <?php
 
 namespace idiacant\dummyspam;
+
 use idiacant\dummyspam\interfaces\GraphenesInterface;
 use idiacant\dummyspam\interfaces\PatternsInterface;
 
 final class Definitions implements GraphenesInterface, PatternsInterface
 {
+
+	private static $instance = null;
+
 	private static $GLIPHS = [
 		"a" => "а",
 		"o" => "о",
@@ -27,6 +31,15 @@ final class Definitions implements GraphenesInterface, PatternsInterface
 
 	final private function __clone()
 	{
+	}
+
+	public static function getInstance() {
+		if (self::$instance == null) {
+			$className = __CLASS__;
+			self::$instance = new $className();
+		}
+
+		return self::$instance;
 	}
 
 	public static function getGlyphs() : array {
