@@ -48,14 +48,13 @@ class DummySpam
 
 	public function __construct(GraphenesInterface $Graphener, PatternsInterface $Patterner,
 															SanitizerInterface $Sanitizer, NormalizerInterface $Normalizer,
-															CheckerInterface $Checker, $message )
+															CheckerInterface $Checker)
 	{
 		$this->glyphs = $Graphener::getGlyphs();
 		$this->patterns = $Patterner::getPatterns();
 		$this->sanitizer = $Sanitizer;
 		$this->normalizer = $Normalizer;
 		$this->checker = $Checker;
-		$this->setMessage($message);
 	}
 
 
@@ -65,7 +64,9 @@ class DummySpam
 
 	}
 
-	public function checkIsSpam() : array {
+	public function checkIsSpam(string $message = '') : array {
+
+		$this->setMessage($message);
 
 		$result = [true, "Validations didn't start."];
 
