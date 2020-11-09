@@ -5,6 +5,6 @@ namespace idiacant\dummyspam\interfaces;
 
 interface CheckerInterface
 {
-	public function CheckOnPatterns(string $message, array $patterns = []) : array;
+	public function CheckOnPatterns(string $message, array $patterns = [], array $glyphs = []) : array;
 
 }

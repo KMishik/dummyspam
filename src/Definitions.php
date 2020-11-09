@@ -13,6 +13,7 @@ final class Definitions implements GraphenesInterface, PatternsInterface
 	private static $GLIPHS = [
 		"a" => "а",
 		"o" => "о",
+		"e" => "е",
 		"k" => "к",
 		"c" => "с",
 		"p" => "р",
@@ -22,7 +23,7 @@ final class Definitions implements GraphenesInterface, PatternsInterface
 	];
 
 	private static $PATTERNS = [
-
+		"TеSt..",
 	];
 
 	final private function __construct()

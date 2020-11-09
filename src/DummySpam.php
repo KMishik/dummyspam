@@ -34,31 +34,27 @@ class DummySpam
 
 	protected function msgNormalize() {
 
-		//strtolower
-		//strtr
 		$this->message = $this->normalizer->Normalize($this->message, $this->glyphs);
 
 	}
 
 	protected function findPatterns() : array {
 
-		//strpos
-
-		$result = $this->checker->CheckOnPatterns($this->message, $this->patterns);
+		$result = $this->checker->CheckOnPatterns($this->message, $this->patterns, $this->glyphs);
 
 		return $result;
 
 	}
 
-	public function __construct(GraphenesInterface $graphene, PatternsInterface $pattern,
-															SanitizerInterface $sanitizer, NormalizerInterface $normalizer,
-															CheckerInterface $checker, $message )
+	public function __construct(GraphenesInterface $Graphener, PatternsInterface $Patterner,
+															SanitizerInterface $Sanitizer, NormalizerInterface $Normalizer,
+															CheckerInterface $Checker, $message )
 	{
-		$this->glyphs = $graphene::getGlyphs();
-		$this->patternSet = $pattern::getPatterns();
-		$this->sanitizer = $sanitizer;
-		$this->normalizer = $normalizer;
-		$this->checker = $checker;
+		$this->glyphs = $Graphener::getGlyphs();
+		$this->patterns = $Patterner::getPatterns();
+		$this->sanitizer = $Sanitizer;
+		$this->normalizer = $Normalizer;
+		$this->checker = $Checker;
 		$this->setMessage($message);
 	}
 

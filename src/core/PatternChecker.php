@@ -13,7 +13,7 @@ use idiacant\dummyspam\interfaces\CheckerInterface;
 
 class PatternChecker implements CheckerInterface
 {
-	public function CheckOnPatterns(string $message, array $patterns = []): array
+	public function CheckOnPatterns(string $message, array $patterns = [], array $glyphs = []): array
 	{
 		// TODO: Implement CheckOnPatterns() method.
 
